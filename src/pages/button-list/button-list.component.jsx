@@ -3,24 +3,29 @@ import ButtonNumber from './../../components/button-number/button-number.compone
 
 import './button-list.styles.scss';
 
-const ButtonList = ({buttons}) => {
-    if(buttons){
-        return (
-            <div className='button-list'>
-               {
-                   buttons.map(button => {
-                       return (
-                        <ButtonNumber 
-                        key={button.id} 
-                        value={button} 
-                        />)
-                   })
-               }
-            </div>
-        )
-    } else {
-        return null;
-    }  
-};
+class ButtonList extends React.Component {
+  
+    render(){
+        const {buttons} = this.props;
+        if(buttons) {
+            return (
+                <div className='button-list'>
+                   {
+                       buttons.map(button => {
+                           return (
+                            <ButtonNumber 
+                            key={button.id} 
+                            value={button} 
+                            />)
+                       })
+                   }
+                </div>
+            )
+        } else {
+            return null;
+        }
+    }
+} 
+
 
 export default ButtonList;

@@ -2,17 +2,17 @@ import React from 'react';
 import axios from 'axios';
 
 import ProgressBarList from './../progress-bar-list/progress-bar-list.component';
-//import DropdownList from './../../components/drop-down/drop-down.component';
+import DropdownList from './../../components/drop-down/drop-down.component';
 import ButtonList from './../button-list/button-list.component';
 
 import './homepage.styles.scss';
 
-class Homepage extends React.Component{
-
+class Homepage extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            barinfo: []
+            barinfo: [],
+            value: ''
         }
     }
 
@@ -24,13 +24,27 @@ class Homepage extends React.Component{
         })
     }
 
+    handleChange = (event) => {
+        this.setState({value: event.target.value});
+    }
+    
+    handleSubmit = (event) => {
+        // this.setState({value: event.target.value});
+        console.log('You selected: ' + this.state.value);
+        event.preventDefault();
+    }
+
     render(){
         const {bars, buttons, limit} = this.state.barinfo;
-        console.log(this.state.barinfo);
         return (
             <div className='homepage'>
-                <ProgressBarList bars={bars} limit={limit} />
-                <ButtonList buttons={buttons} />
+                <h2> Progress Bar Demo </h2>
+                {this.state.value}
+                <ProgressBarList bars={bars} limit={limit} selected={this.state.value} />
+                <div className="controls">
+                    <DropdownList bars={bars} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+                    <ButtonList buttons={buttons}  />
+                </div>
             </div>
         );
     }
