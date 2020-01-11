@@ -6,10 +6,8 @@ import ProgressFiller from './../progress-filler/progress-filler.component';
 import './progress-bar.styles.scss';
 
 class ProgressBar extends React.Component {
-
     render(){
         const {percentage, limit, selected } = this.props;
-        console.log( "Progressbar:", selected);
         return (
             <>
             <label> Progress bar {percentage} </label>
@@ -19,7 +17,6 @@ class ProgressBar extends React.Component {
             </>
         )
     }
-
 } 
 
 ProgressBar.propsTypes = {

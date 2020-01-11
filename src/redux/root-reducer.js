@@ -1,17 +1,9 @@
-//import {combineReducers} from 'redux';
+import {combineReducers} from 'redux';
 
-// const rootReducer = combineReducers({
-  
-// });
+import barsReducer from './bars/bars.reducer';
 
-const initState = {
-    bars: [ 24, 19, 80, 35],
-    buttons: [20, 10, 15],
-    limit: 240
-}
-
-const rootReducer = ( state = initState, action) => {
-    return state;
-}
+const rootReducer = combineReducers({
+    bars: barsReducer,
+});
 
 export default rootReducer;
