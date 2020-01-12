@@ -8,7 +8,7 @@ import DropdownList from './../../components/drop-down/drop-down.component';
 
 import './homepage.styles.scss';
 
-class Homepage extends React.Component {
+class HomePage extends React.Component {
 
     componentDidMount() {
         const {fetchBars} = this.props;
@@ -39,4 +39,4 @@ const mapDispatchToProps = dispatch =>({
    fetchBars:() => dispatch(fetchBars())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
