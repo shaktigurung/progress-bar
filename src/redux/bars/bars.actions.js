@@ -24,7 +24,7 @@ export const fetchBarsFailure = error => {
 export const fetchBars = () => {
   return (dispatch) => {
     dispatch(fetchBarsRequest)
-    axios.get('http://pb-api.herokuapp.com/bars')
+    axios.get('https://pb-api.herokuapp.com/bars')
       .then(response => {
         const bars = response.data
         dispatch(fetchBarsSuccess(bars))
