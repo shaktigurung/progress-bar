@@ -4,7 +4,7 @@ import {fetchBars} from './../../redux/bars/bars.actions';
 
 import ProgressBarList from './../progress-bar-list/progress-bar-list.component';
 import DropdownList from './../../components/drop-down/drop-down.component';
-import ButtonList from './../button-list/button-list.component';
+//import ButtonList from './../button-list/button-list.component';
 
 import './homepage.styles.scss';
 
@@ -15,25 +15,15 @@ class Homepage extends React.Component {
         fetchBars();
     }
 
-    handleChange = (event) => {
-        this.setState({value: event.target.value});
-    }
-    
-    handleSubmit = (event) => {
-        console.log('You selected: ' + this.state.value);
-        event.preventDefault();
-    }
-
     render(){
-        console.log(this.props.barsInfo);
+        //console.log(this.props);
         const {bars, limit, buttons} = this.props.barsInfo.bars;
         return (
             <div className='homepage'>
                 <h2> Progress Bar Demo </h2>
-                <ProgressBarList bars={bars} limit={limit}  />
+                <ProgressBarList bars={bars} limit={limit} buttons={buttons}  />
                 <div className="controls">
-                    <DropdownList bars={bars} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-                    <ButtonList buttons={buttons}  />
+                    <DropdownList bars={bars} />
                 </div>
             </div>
         );
@@ -41,7 +31,8 @@ class Homepage extends React.Component {
 } 
 
 const mapStateToProps = state => ({
-   barsInfo: state.bars
+   barsInfo: state.bars,
+   form: state.form
 });
 
 const mapDispatchToProps = dispatch =>({

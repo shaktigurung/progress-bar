@@ -4,9 +4,8 @@ import ButtonNumber from './../../components/button-number/button-number.compone
 import './button-list.styles.scss';
 
 class ButtonList extends React.Component {
-  
     render(){
-        const {buttons} = this.props;
+        const { buttons,handleClick } = this.props;
         if(buttons) {
             return (
                 <div className='button-list'>
@@ -16,6 +15,7 @@ class ButtonList extends React.Component {
                             <ButtonNumber 
                             key={button.id} 
                             value={button} 
+                            handleClick={handleClick}
                             />)
                        })
                    }

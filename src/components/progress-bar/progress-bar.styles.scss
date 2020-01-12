@@ -1,3 +1,10 @@
+.progress-bar-container {
+    border: 1px solid #1DA598;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .progress-bar {
     position: relative;
     height: 20px;
@@ -5,5 +12,8 @@
     margin: 5px;
     background: white;
     border-radius: 5px;
+}
 
+label {
+    color: #1DA598;
 }
