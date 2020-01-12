@@ -26,12 +26,15 @@ class ProgressBar extends React.Component {
     }
    
     render(){
-        const {limit, buttons } = this.props;
+        const { limit, buttons, selectedBar} = this.props;
         const {percentage} = this.state;
+        console.log("Selected Bar:", selectedBar);
+        console.log("Percentage:", percentage);
         return (
-            <div className='progress-bar-container'>
+            <div className='progress-bar-container' >
                 <label> Progress bar {percentage} </label>
-                <p> {percentage >= 100 ? "You went over the limit" : "" } </p>
+                <p className='warning'> {percentage >= 100 ? "You went over the limit" : "" } </p>
+                <p className='warning'> {percentage <= 0 ? "You went under the limit" : "" } </p>
                 <div className='progress-bar' style={{width:`${limit}px`}} >
                     <ProgressFiller percentage={this.checkValue(0, percentage, 100)} />
                 </div>
@@ -48,7 +51,7 @@ ProgressBar.propsTypes = {
 }
 
 const mapStateToProps = state => ({
-    selectedBar: state.form.dropdownForm,
+    selectedBar: state.form.dropdownForm && state.form.dropdownForm.values ? state.form.dropdownForm.values.favoriteBar : null
 })
    
 export default connect(mapStateToProps)(ProgressBar);

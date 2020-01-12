@@ -10,8 +10,8 @@ class DropDownList extends React.Component {
         if(bars) {
         return (
           <form onSubmit={this.props.handleSubmit}>
-            <div>
-              <Field name="favoriteBar" component="select">
+            <div className="dropdownBar">
+              <Field className="favoriteBar" name="favoriteBar" component="select">
                 {
                   bars.map( bar => {
                       return <option key={bar.id} value={bar}> Progress bar: {bar} </option>

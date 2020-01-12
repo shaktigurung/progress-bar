@@ -17,14 +17,14 @@ class Homepage extends React.Component {
 
     render(){
         //console.log(this.props);
-        const {bars, limit, buttons} = this.props.barsInfo.bars;
+        const {bars, limit} = this.props.barsInfo.bars;
         return (
             <div className='homepage'>
                 <h2> Progress Bar Demo </h2>
-                <ProgressBarList bars={bars} limit={limit} buttons={buttons}  />
                 <div className="controls">
-                    <DropdownList bars={bars} />
+                    <DropdownList bars={bars} limit={limit} />
                 </div>
+                <ProgressBarList />
             </div>
         );
     }
