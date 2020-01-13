@@ -11,7 +11,7 @@ class DropDownList extends React.Component {
         return (
           <form onSubmit={this.props.handleSubmit}>
             <div className="dropdownBar">
-              <Field className="favoriteBar" name="favoriteBar" component="select">
+              <Field className="favoriteBar" name="favoriteBar" component="select" >
                 {
                   bars.map( bar => {
                       return <option key={bar.id} value={bar}> Progress bar: {bar} </option>

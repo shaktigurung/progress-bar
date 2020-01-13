@@ -9,20 +9,19 @@ import DropdownList from './../../components/drop-down/drop-down.component';
 import './homepage.styles.scss';
 
 class HomePage extends React.Component {
-
+  
     componentDidMount() {
         const {fetchBars} = this.props;
         fetchBars();
     }
 
     render(){
-        //console.log(this.props);
         const {bars, limit} = this.props.barsInfo.bars;
         return (
             <div className='homepage'>
                 <h2> Progress Bar Demo </h2>
                 <div className="controls">
-                    <DropdownList bars={bars} limit={limit} />
+                    <DropdownList bars={bars} limit={limit}  />
                 </div>
                 <ProgressBarList />
             </div>
@@ -31,8 +30,7 @@ class HomePage extends React.Component {
 } 
 
 const mapStateToProps = state => ({
-   barsInfo: state.bars,
-   form: state.form
+   barsInfo: state.bars
 });
 
 const mapDispatchToProps = dispatch =>({

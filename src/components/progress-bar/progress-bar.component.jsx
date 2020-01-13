@@ -8,6 +8,7 @@ import ButtonList from './../../pages/button-list/button-list.component';
 import './progress-bar.styles.scss';
 
 class ProgressBar extends React.Component {
+    
     constructor(props){
         super(props);
         this.state = {
@@ -28,13 +29,13 @@ class ProgressBar extends React.Component {
     render(){
         const { limit, buttons, selectedBar} = this.props;
         const {percentage} = this.state;
-        console.log("Selected Bar:", selectedBar);
-        console.log("Percentage:", percentage);
+        const barSelected = Number(selectedBar);
         return (
             <div className='progress-bar-container' >
                 <label> Progress bar {percentage} </label>
                 <p className='warning'> {percentage >= 100 ? "You went over the limit" : "" } </p>
                 <p className='warning'> {percentage <= 0 ? "You went under the limit" : "" } </p>
+                <p className='warning'> { barSelected === percentage ? "Selected" : "" } </p>
                 <div className='progress-bar' style={{width:`${limit}px`}} >
                     <ProgressFiller percentage={this.checkValue(0, percentage, 100)} />
                 </div>
